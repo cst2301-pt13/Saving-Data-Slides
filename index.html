@@ -1,52 +1,737 @@
-<!doctype html>
-<html>
-	<head>
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>reveal.js by cst2301-pt13</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">reveal.js</h1>
+      <h2 class="project-tagline">The HTML Presentation Framework</h2>
+      <a href="https://github.com/cst2301-pt13/Saving-Data-Slides" class="btn">View on GitHub</a>
+      <a href="https://github.com/cst2301-pt13/Saving-Data-Slides/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/cst2301-pt13/Saving-Data-Slides/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="chrome=1">
-		<title>reveal.js - The HTML Presentations Framework</title>
+    <section class="main-content">
+      <h1>
+<a id="revealjs-" class="anchor" href="#revealjs-" aria-hidden="true"><span class="octicon octicon-link"></span></a>reveal.js <a href="https://travis-ci.org/hakimel/reveal.js"><img src="https://travis-ci.org/hakimel/reveal.js.png?branch=master" alt="Build Status"></a>
+</h1>
 
-		<link rel="stylesheet" href="css/normalize.css">
-		<link rel="stylesheet" href="css/main.css">
+<p>A framework for easily creating beautiful presentations using HTML. <a href="http://lab.hakim.se/reveal-js/">Check out the live demo</a>.</p>
 
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<p>reveal.js comes with a broad range of features including <a href="https://github.com/hakimel/reveal.js#markup">nested slides</a>, <a href="https://github.com/hakimel/reveal.js#markdown">markdown contents</a>, <a href="https://github.com/hakimel/reveal.js#pdf-export">PDF export</a>, <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker notes</a> and a <a href="https://github.com/hakimel/reveal.js#api">JavaScript API</a>. It's best viewed in a browser with support for CSS 3D transforms but <a href="https://github.com/hakimel/reveal.js/wiki/Browser-Support">fallbacks</a> are available to make sure your presentation can still be viewed elsewhere.</p>
 
-		<!--[if lt IE 9]>
-		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
+<h4>
+<a id="more-reading" class="anchor" href="#more-reading" aria-hidden="true"><span class="octicon octicon-link"></span></a>More reading:</h4>
 
-	</head>
-	<body>
-		<div class="wrapper">
+<ul>
+<li>
+<a href="#installation">Installation</a>: Step-by-step instructions for getting reveal.js running on your computer.</li>
+<li>
+<a href="https://github.com/hakimel/reveal.js/releases">Changelog</a>: Up-to-date version history.</li>
+<li>
+<a href="https://github.com/hakimel/reveal.js/wiki/Example-Presentations">Examples</a>: Presentations created with reveal.js, add your own!</li>
+<li>
+<a href="https://github.com/hakimel/reveal.js/wiki/Browser-Support">Browser Support</a>: Explanation of browser support and fallbacks.</li>
+</ul>
 
-			<header>
+<h2>
+<a id="slides" class="anchor" href="#slides" aria-hidden="true"><span class="octicon octicon-link"></span></a>Slides</h2>
 
-				<h1>reveal.js</h1>
-				<p>
-					The HTML Presentation Framework &mdash; Site coming soon
-				</p>
+<p>Presentations are written using HTML or markdown but there's also an online editor for those of you who prefer a graphical interface. Give it a try at <a href="http://slid.es">http://slid.es</a>.</p>
 
-			</header>
+<h2>
+<a id="instructions" class="anchor" href="#instructions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Instructions</h2>
 
-			<footer>
+<h3>
+<a id="markup" class="anchor" href="#markup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Markup</h3>
 
-				<p>
-					<a href="http://lab.hakim.se/reveal-js">Try the demo</a>
-					<a href="https://github.com/hakimel/reveal.js/releases">Download</a>
-				</p>
+<p>Markup hierarchy needs to be <code>&lt;div class="reveal"&gt; &lt;div class="slides"&gt; &lt;section&gt;</code> where the <code>&lt;section&gt;</code> represents one slide and can be repeated indefinitely. If you place multiple <code>&lt;section&gt;</code>'s inside of another <code>&lt;section&gt;</code> they will be shown as vertical slides. The first of the vertical slides is the "root" of the others (at the top), and it will be included in the horizontal sequence. For example:</p>
 
-			</footer>
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>reveal<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>slides<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">section</span>&gt;Single Horizontal Slide&lt;/<span class="pl-ent">section</span>&gt;
+        &lt;<span class="pl-ent">section</span>&gt;
+            &lt;<span class="pl-ent">section</span>&gt;Vertical Slide 1&lt;/<span class="pl-ent">section</span>&gt;
+            &lt;<span class="pl-ent">section</span>&gt;Vertical Slide 2&lt;/<span class="pl-ent">section</span>&gt;
+        &lt;/<span class="pl-ent">section</span>&gt;
+    &lt;/<span class="pl-ent">div</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
 
-		</div>
+<h3>
+<a id="markdown" class="anchor" href="#markdown" aria-hidden="true"><span class="octicon octicon-link"></span></a>Markdown</h3>
 
-		<script>
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+<p>It's possible to write your slides using Markdown. To enable Markdown, add the <code>data-markdown</code> attribute to your <code>&lt;section&gt;</code> elements and wrap the contents in a <code>&lt;script type="text/template"&gt;</code> like the example below.</p>
 
-		  ga('create', 'UA-43375306-1', 'revealjs.com');
-		  ga('send', 'pageview');
-		</script>
-	</body>
+<p>This is based on <a href="https://gist.github.com/1343518">data-markdown</a> from <a href="https://github.com/paulirish">Paul Irish</a> modified to use <a href="https://github.com/chjj/marked">marked</a> to support <a href="https://help.github.com/articles/github-flavored-markdown">Github Flavoured Markdown</a>. Sensitive to indentation (avoid mixing tabs and spaces) and line breaks (avoid consecutive breaks).</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">section</span> <span class="pl-e">data-markdown</span>&gt;
+    &lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/template<span class="pl-pds">"</span></span>&gt;
+        ## Page title
+
+        A paragraph with some text and a [link](http://hakim.se).
+    &lt;/<span class="pl-ent">script</span>&gt;
+&lt;/<span class="pl-ent">section</span>&gt;</pre></div>
+
+<h4>
+<a id="external-markdown" class="anchor" href="#external-markdown" aria-hidden="true"><span class="octicon octicon-link"></span></a>External Markdown</h4>
+
+<p>You can write your content as a separate file and have reveal.js load it at runtime. Note the separator arguments which determine how slides are delimited in the external file.</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">section</span> <span class="pl-e">data-markdown</span>=<span class="pl-s"><span class="pl-pds">"</span>example.md<span class="pl-pds">"</span></span> <span class="pl-e">data-separator</span>=<span class="pl-s"><span class="pl-pds">"</span>^\n\n\n<span class="pl-pds">"</span></span> <span class="pl-e">data-vertical</span>=<span class="pl-s"><span class="pl-pds">"</span>^\n\n<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">section</span>&gt;</pre></div>
+
+<h3>
+<a id="configuration" class="anchor" href="#configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuration</h3>
+
+<p>At the end of your page you need to initialize reveal by running the following code. Note that all config values are optional and will default as specified below.</p>
+
+<div class="highlight highlight-javascript"><pre>Reveal.initialize({
+
+    <span class="pl-c">// Display controls in the bottom right corner</span>
+    controls<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+
+    <span class="pl-c">// Display a presentation progress bar</span>
+    progress<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+
+    <span class="pl-c">// Push each slide change to the browser history</span>
+    history<span class="pl-k">:</span> <span class="pl-c1">false</span>,
+
+    <span class="pl-c">// Enable keyboard shortcuts for navigation</span>
+    keyboard<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+
+    <span class="pl-c">// Enable touch events for navigation</span>
+    touch<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+
+    <span class="pl-c">// Enable the slide overview mode</span>
+    overview<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+
+    <span class="pl-c">// Vertical centering of slides</span>
+    center<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+
+    <span class="pl-c">// Loop the presentation</span>
+    loop<span class="pl-k">:</span> <span class="pl-c1">false</span>,
+
+    <span class="pl-c">// Change the presentation direction to be RTL</span>
+    rtl<span class="pl-k">:</span> <span class="pl-c1">false</span>,
+
+    <span class="pl-c">// Number of milliseconds between automatically proceeding to the</span>
+    <span class="pl-c">// next slide, disabled when set to 0, this value can be overwritten</span>
+    <span class="pl-c">// by using a data-autoslide attribute on your slides</span>
+    autoSlide<span class="pl-k">:</span> <span class="pl-c1">0</span>,
+
+    <span class="pl-c">// Enable slide navigation via mouse wheel</span>
+    mouseWheel<span class="pl-k">:</span> <span class="pl-c1">false</span>,
+
+    <span class="pl-c">// Apply a 3D roll to links on hover</span>
+    rollingLinks<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+
+    <span class="pl-c">// Transition style</span>
+    transition<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>default<span class="pl-pds">'</span></span>, <span class="pl-c">// default/cube/page/concave/zoom/linear/fade/none</span>
+
+    <span class="pl-c">// Transition speed</span>
+    transitionSpeed<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>default<span class="pl-pds">'</span></span>, <span class="pl-c">// default/fast/slow</span>
+
+    <span class="pl-c">// Transition style for full page backgrounds</span>
+    backgroundTransition<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>default<span class="pl-pds">'</span></span> <span class="pl-c">// default/linear</span>
+
+});</pre></div>
+
+<p>Note that the new default vertical centering option will break compatibility with slides that were using transitions with backgrounds (<code>cube</code> and <code>page</code>). To restore the previous behavior, set <code>center</code> to <code>false</code>.</p>
+
+<p>The configuration can be updated after initialization using the <code>configure</code> method:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// Turn autoSlide off</span>
+Reveal.configure({ autoSlide<span class="pl-k">:</span> <span class="pl-c1">0</span> });
+
+<span class="pl-c">// Start auto-sliding every 5s</span>
+Reveal.configure({ autoSlide<span class="pl-k">:</span> <span class="pl-c1">5000</span> });</pre></div>
+
+<h3>
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies</h3>
+
+<p>Reveal.js doesn't <em>rely</em> on any third party scripts to work but a few optional libraries are included by default. These libraries are loaded as dependencies in the order they appear, for example:</p>
+
+<div class="highlight highlight-javascript"><pre>Reveal.initialize({
+    dependencies<span class="pl-k">:</span> [
+        <span class="pl-c">// Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/</span>
+        { src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>lib/js/classList.js<span class="pl-pds">'</span></span>, <span class="pl-en">condition</span>: <span class="pl-k">function</span>() { <span class="pl-k">return</span> <span class="pl-k">!</span><span class="pl-c1">document</span>.<span class="pl-c1">body</span>.classList; } },
+
+        <span class="pl-c">// Interpret Markdown in &lt;section&gt; elements</span>
+        { src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>plugin/markdown/marked.js<span class="pl-pds">'</span></span>, <span class="pl-en">condition</span>: <span class="pl-k">function</span>() { <span class="pl-k">return</span> <span class="pl-k">!!</span><span class="pl-c1">document</span>.querySelector( <span class="pl-s"><span class="pl-pds">'</span>[data-markdown]<span class="pl-pds">'</span></span> ); } },
+        { src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>plugin/markdown/markdown.js<span class="pl-pds">'</span></span>, <span class="pl-en">condition</span>: <span class="pl-k">function</span>() { <span class="pl-k">return</span> <span class="pl-k">!!</span><span class="pl-c1">document</span>.querySelector( <span class="pl-s"><span class="pl-pds">'</span>[data-markdown]<span class="pl-pds">'</span></span> ); } },
+
+        <span class="pl-c">// Syntax highlight for &lt;code&gt; elements</span>
+        { src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>plugin/highlight/highlight.js<span class="pl-pds">'</span></span>, async<span class="pl-k">:</span> <span class="pl-c1">true</span>, <span class="pl-en">callback</span>: <span class="pl-k">function</span>() { hljs.initHighlightingOnLoad(); } },
+
+        <span class="pl-c">// Zoom in and out with Alt+click</span>
+        { src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>plugin/zoom-js/zoom.js<span class="pl-pds">'</span></span>, async<span class="pl-k">:</span> <span class="pl-c1">true</span>, <span class="pl-en">condition</span>: <span class="pl-k">function</span>() { <span class="pl-k">return</span> <span class="pl-k">!!</span><span class="pl-c1">document</span>.<span class="pl-c1">body</span>.classList; } },
+
+        <span class="pl-c">// Speaker notes</span>
+        { src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>plugin/notes/notes.js<span class="pl-pds">'</span></span>, async<span class="pl-k">:</span> <span class="pl-c1">true</span>, <span class="pl-en">condition</span>: <span class="pl-k">function</span>() { <span class="pl-k">return</span> <span class="pl-k">!!</span><span class="pl-c1">document</span>.<span class="pl-c1">body</span>.classList; } },
+
+        <span class="pl-c">// Remote control your reveal.js presentation using a touch device</span>
+        { src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>plugin/remotes/remotes.js<span class="pl-pds">'</span></span>, async<span class="pl-k">:</span> <span class="pl-c1">true</span>, <span class="pl-en">condition</span>: <span class="pl-k">function</span>() { <span class="pl-k">return</span> <span class="pl-k">!!</span><span class="pl-c1">document</span>.<span class="pl-c1">body</span>.classList; } }
+    ]
+});</pre></div>
+
+<p>You can add your own extensions using the same syntax. The following properties are available for each dependency object:</p>
+
+<ul>
+<li>
+<strong>src</strong>: Path to the script to load</li>
+<li>
+<strong>async</strong>: [optional] Flags if the script should load after reveal.js has started, defaults to false</li>
+<li>
+<strong>callback</strong>: [optional] Function to execute when the script has loaded</li>
+<li>
+<strong>condition</strong>: [optional] Function which must return true for the script to be loaded</li>
+</ul>
+
+<h3>
+<a id="presentation-size" class="anchor" href="#presentation-size" aria-hidden="true"><span class="octicon octicon-link"></span></a>Presentation Size</h3>
+
+<p>All presentations have a normal size, that is the resolution at which they are authored. The framework will automatically scale presentations uniformly based on this size to ensure that everything fits on any given display or viewport.</p>
+
+<p>See below for a list of configuration options related to sizing, including default values:</p>
+
+<div class="highlight highlight-javascript"><pre>Reveal.initialize({
+
+    ...
+
+    <span class="pl-c">// The "normal" size of the presentation, aspect ratio will be preserved</span>
+    <span class="pl-c">// when the presentation is scaled to fit different resolutions. Can be</span>
+    <span class="pl-c">// specified using percentage units.</span>
+    width<span class="pl-k">:</span> <span class="pl-c1">960</span>,
+    height<span class="pl-k">:</span> <span class="pl-c1">700</span>,
+
+    <span class="pl-c">// Factor of the display size that should remain empty around the content</span>
+    margin<span class="pl-k">:</span> <span class="pl-c1">0.1</span>,
+
+    <span class="pl-c">// Bounds for smallest/largest possible scale to apply to content</span>
+    minScale<span class="pl-k">:</span> <span class="pl-c1">0.2</span>,
+    maxScale<span class="pl-k">:</span> <span class="pl-c1">1.0</span>
+
+});</pre></div>
+
+<h3>
+<a id="keyboard-bindings" class="anchor" href="#keyboard-bindings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Keyboard Bindings</h3>
+
+<p>If you're unhappy with any of the default keyboard bindings you can override them using the <code>keyboard</code> config option:</p>
+
+<div class="highlight highlight-javascript"><pre>Reveal.configure({
+  keyboard<span class="pl-k">:</span> {
+    <span class="pl-c1">13</span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>next<span class="pl-pds">'</span></span>, <span class="pl-c">// go to the next slide when the ENTER key is pressed</span>
+    <span class="pl-c1">27</span><span class="pl-k">:</span> <span class="pl-k">function</span>() {}, <span class="pl-c">// do something custom when ESC is pressed</span>
+    <span class="pl-c1">32</span><span class="pl-k">:</span> <span class="pl-c1">null</span> <span class="pl-c">// don't do anything when SPACE is pressed (i.e. disable a reveal.js default binding)</span>
+  }
+});</pre></div>
+
+<h3>
+<a id="api" class="anchor" href="#api" aria-hidden="true"><span class="octicon octicon-link"></span></a>API</h3>
+
+<p>The <code>Reveal</code> class provides a JavaScript API for controlling navigation and reading state:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// Navigation</span>
+Reveal.slide( indexh, indexv, indexf );
+Reveal.<span class="pl-c1">left</span>();
+Reveal.<span class="pl-c1">right</span>();
+Reveal.up();
+Reveal.down();
+Reveal.prev();
+Reveal.<span class="pl-c1">next</span>();
+Reveal.prevFragment();
+Reveal.nextFragment();
+Reveal.toggleOverview();
+Reveal.togglePause();
+
+<span class="pl-c">// Retrieves the previous and current slide elements</span>
+Reveal.getPreviousSlide();
+Reveal.getCurrentSlide();
+
+Reveal.getIndices(); <span class="pl-c">// { h: 0, v: 0 } }</span>
+
+<span class="pl-c">// State checks</span>
+Reveal.isFirstSlide();
+Reveal.isLastSlide();
+Reveal.isOverview();
+Reveal.isPaused();</pre></div>
+
+<h3>
+<a id="ready-event" class="anchor" href="#ready-event" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ready Event</h3>
+
+<p>The 'ready' event is fired when reveal.js has loaded all (synchronous) dependencies and is ready to start navigating.</p>
+
+<div class="highlight highlight-javascript"><pre>Reveal.addEventListener( <span class="pl-s"><span class="pl-pds">'</span>ready<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>( <span class="pl-smi">event</span> ) {
+    <span class="pl-c">// event.currentSlide, event.indexh, event.indexv</span>
+} );</pre></div>
+
+<h3>
+<a id="slide-changed-event" class="anchor" href="#slide-changed-event" aria-hidden="true"><span class="octicon octicon-link"></span></a>Slide Changed Event</h3>
+
+<p>An 'slidechanged' event is fired each time the slide is changed (regardless of state). The event object holds the index values of the current slide as well as a reference to the previous and current slide HTML nodes.</p>
+
+<p>Some libraries, like MathJax (see <a href="https://github.com/hakimel/reveal.js/issues/226#issuecomment-10261609">#226</a>), get confused by the transforms and display states of slides. Often times, this can be fixed by calling their update or render function from this callback.</p>
+
+<div class="highlight highlight-javascript"><pre>Reveal.addEventListener( <span class="pl-s"><span class="pl-pds">'</span>slidechanged<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>( <span class="pl-smi">event</span> ) {
+    <span class="pl-c">// event.previousSlide, event.currentSlide, event.indexh, event.indexv</span>
+} );</pre></div>
+
+<h3>
+<a id="states" class="anchor" href="#states" aria-hidden="true"><span class="octicon octicon-link"></span></a>States</h3>
+
+<p>If you set <code>data-state="somestate"</code> on a slide <code>&lt;section&gt;</code>, "somestate" will be applied as a class on the document element when that slide is opened. This allows you to apply broad style changes to the page based on the active slide.</p>
+
+<p>Furthermore you can also listen to these changes in state via JavaScript:</p>
+
+<div class="highlight highlight-javascript"><pre>Reveal.addEventListener( <span class="pl-s"><span class="pl-pds">'</span>somestate<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>() {
+    <span class="pl-c">// TODO: Sprinkle magic</span>
+}, <span class="pl-c1">false</span> );</pre></div>
+
+<h3>
+<a id="slide-backgrounds" class="anchor" href="#slide-backgrounds" aria-hidden="true"><span class="octicon octicon-link"></span></a>Slide Backgrounds</h3>
+
+<p>Slides are contained within a limited portion of the screen by default to allow them to fit any display and scale uniformly. You can apply full page background colors or images by applying a <code>data-background</code> attribute to your <code>&lt;section&gt;</code> elements. Below are a few examples.</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">section</span> <span class="pl-e">data-background</span>=<span class="pl-s"><span class="pl-pds">"</span>#ff0000<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">h2</span>&gt;All CSS color formats are supported, like rgba() or hsl().&lt;/<span class="pl-ent">h2</span>&gt;
+&lt;/<span class="pl-ent">section</span>&gt;
+&lt;<span class="pl-ent">section</span> <span class="pl-e">data-background</span>=<span class="pl-s"><span class="pl-pds">"</span>http://example.com/image.png<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">h2</span>&gt;This slide will have a full-size background image.&lt;/<span class="pl-ent">h2</span>&gt;
+&lt;/<span class="pl-ent">section</span>&gt;
+&lt;<span class="pl-ent">section</span> <span class="pl-e">data-background</span>=<span class="pl-s"><span class="pl-pds">"</span>http://example.com/image.png<span class="pl-pds">"</span></span> <span class="pl-e">data-background-size</span>=<span class="pl-s"><span class="pl-pds">"</span>100px<span class="pl-pds">"</span></span> <span class="pl-e">data-background-repeat</span>=<span class="pl-s"><span class="pl-pds">"</span>repeat<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">h2</span>&gt;This background image will be sized to 100px and repeated.&lt;/<span class="pl-ent">h2</span>&gt;
+&lt;/<span class="pl-ent">section</span>&gt;</pre></div>
+
+<p>Backgrounds transition using a fade animation by default. This can be changed to a linear sliding transition by passing <code>backgroundTransition: 'slide'</code> to the <code>Reveal.initialize()</code> call. Alternatively you can set <code>data-background-transition</code> on any section with a background to override that specific transition.</p>
+
+<h3>
+<a id="slide-transitions" class="anchor" href="#slide-transitions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Slide Transitions</h3>
+
+<p>The global presentation transition is set using the <code>transition</code> config value. You can override the global transition for a specific slide by using the <code>data-transition</code> attribute:</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">section</span> <span class="pl-e">data-transition</span>=<span class="pl-s"><span class="pl-pds">"</span>zoom<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">h2</span>&gt;This slide will override the presentation transition and zoom!&lt;/<span class="pl-ent">h2</span>&gt;
+&lt;/<span class="pl-ent">section</span>&gt;
+
+&lt;<span class="pl-ent">section</span> <span class="pl-e">data-transition-speed</span>=<span class="pl-s"><span class="pl-pds">"</span>fast<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">h2</span>&gt;Choose from three transition speeds: default, fast or slow!&lt;/<span class="pl-ent">h2</span>&gt;
+&lt;/<span class="pl-ent">section</span>&gt;</pre></div>
+
+<p>Note that this does not work with the page and cube transitions.</p>
+
+<h3>
+<a id="internal-links" class="anchor" href="#internal-links" aria-hidden="true"><span class="octicon octicon-link"></span></a>Internal links</h3>
+
+<p>It's easy to link between slides. The first example below targets the index of another slide whereas the second targets a slide with an ID attribute (<code>&lt;section id="some-slide"&gt;</code>):</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#/2/2<span class="pl-pds">"</span></span>&gt;Link&lt;/<span class="pl-ent">a</span>&gt;
+&lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#/some-slide<span class="pl-pds">"</span></span>&gt;Link&lt;/<span class="pl-ent">a</span>&gt;</pre></div>
+
+<p>You can also add relative navigation links, similar to the built in reveal.js controls, by appending one of the following classes on any element. Note that each element is automatically given an <code>enabled</code> class when it's a valid navigation route based on the current slide.</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>navigate-left<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>navigate-right<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>navigate-up<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>navigate-down<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>navigate-prev<span class="pl-pds">"</span></span>&gt; <span class="pl-c">&lt;!-- Previous vertical or horizontal slide --&gt;</span>
+&lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>navigate-next<span class="pl-pds">"</span></span>&gt; <span class="pl-c">&lt;!-- Next vertical or horizontal slide --&gt;</span></pre></div>
+
+<h3>
+<a id="fragments" class="anchor" href="#fragments" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fragments</h3>
+
+<p>Fragments are used to highlight individual elements on a slide. Every element with the class <code>fragment</code> will be stepped through before moving on to the next slide. Here's an example: <a href="http://lab.hakim.se/reveal-js/#/16">http://lab.hakim.se/reveal-js/#/16</a></p>
+
+<p>The default fragment style is to start out invisible and fade in. This style can be changed by appending a different class to the fragment:</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">section</span>&gt;
+    &lt;<span class="pl-ent">p</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>fragment grow<span class="pl-pds">"</span></span>&gt;grow&lt;/<span class="pl-ent">p</span>&gt;
+    &lt;<span class="pl-ent">p</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>fragment shrink<span class="pl-pds">"</span></span>&gt;shrink&lt;/<span class="pl-ent">p</span>&gt;
+    &lt;<span class="pl-ent">p</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>fragment roll-in<span class="pl-pds">"</span></span>&gt;roll-in&lt;/<span class="pl-ent">p</span>&gt;
+    &lt;<span class="pl-ent">p</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>fragment fade-out<span class="pl-pds">"</span></span>&gt;fade-out&lt;/<span class="pl-ent">p</span>&gt;
+    &lt;<span class="pl-ent">p</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>fragment highlight-red<span class="pl-pds">"</span></span>&gt;highlight-red&lt;/<span class="pl-ent">p</span>&gt;
+    &lt;<span class="pl-ent">p</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>fragment highlight-green<span class="pl-pds">"</span></span>&gt;highlight-green&lt;/<span class="pl-ent">p</span>&gt;
+    &lt;<span class="pl-ent">p</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>fragment highlight-blue<span class="pl-pds">"</span></span>&gt;highlight-blue&lt;/<span class="pl-ent">p</span>&gt;
+&lt;/<span class="pl-ent">section</span>&gt;</pre></div>
+
+<p>Multiple fragments can be applied to the same element sequentially by wrapping it, this will fade in the text on the first step and fade it back out on the second.</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">section</span>&gt;
+    &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>fragment fade-in<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>fragment fade-out<span class="pl-pds">"</span></span>&gt;I'll fade in, then out&lt;/<span class="pl-ent">span</span>&gt;
+    &lt;/<span class="pl-ent">span</span>&gt;
+&lt;/<span class="pl-ent">section</span>&gt;</pre></div>
+
+<p>The display order of fragments can be controlled using the <code>data-fragment-index</code> attribute.</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">section</span>&gt;
+    &lt;<span class="pl-ent">p</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>fragment<span class="pl-pds">"</span></span> <span class="pl-e">data-fragment-index</span>=<span class="pl-s"><span class="pl-pds">"</span>3<span class="pl-pds">"</span></span>&gt;Appears last&lt;/<span class="pl-ent">p</span>&gt;
+    &lt;<span class="pl-ent">p</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>fragment<span class="pl-pds">"</span></span> <span class="pl-e">data-fragment-index</span>=<span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span>&gt;Appears first&lt;/<span class="pl-ent">p</span>&gt;
+    &lt;<span class="pl-ent">p</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>fragment<span class="pl-pds">"</span></span> <span class="pl-e">data-fragment-index</span>=<span class="pl-s"><span class="pl-pds">"</span>2<span class="pl-pds">"</span></span>&gt;Appears second&lt;/<span class="pl-ent">p</span>&gt;
+&lt;/<span class="pl-ent">section</span>&gt;</pre></div>
+
+<h3>
+<a id="fragment-events" class="anchor" href="#fragment-events" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fragment events</h3>
+
+<p>When a slide fragment is either shown or hidden reveal.js will dispatch an event.</p>
+
+<div class="highlight highlight-javascript"><pre>Reveal.addEventListener( <span class="pl-s"><span class="pl-pds">'</span>fragmentshown<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>( <span class="pl-smi">event</span> ) {
+    <span class="pl-c">// event.fragment = the fragment DOM element</span>
+} );
+Reveal.addEventListener( <span class="pl-s"><span class="pl-pds">'</span>fragmenthidden<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>( <span class="pl-smi">event</span> ) {
+    <span class="pl-c">// event.fragment = the fragment DOM element</span>
+} );</pre></div>
+
+<h3>
+<a id="code-syntax-highlighting" class="anchor" href="#code-syntax-highlighting" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code syntax highlighting</h3>
+
+<p>By default, Reveal is configured with <a href="http://softwaremaniacs.org/soft/highlight/en/">highlight.js</a> for code syntax highlighting. Below is an example with clojure code that will be syntax highlighted. When the <code>data-trim</code> attribute is present surrounding whitespace is automatically removed.</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">section</span>&gt;
+    &lt;<span class="pl-ent">pre</span>&gt;&lt;<span class="pl-ent">code</span> <span class="pl-e">data-trim</span>&gt;
+(def lazy-fib
+  (concat
+   [0 1]
+   ((fn rfib [a b]
+        (lazy-cons (+ a b) (rfib b (+ a b)))) 0 1)))
+    &lt;/<span class="pl-ent">code</span>&gt;&lt;/<span class="pl-ent">pre</span>&gt;
+&lt;/<span class="pl-ent">section</span>&gt;</pre></div>
+
+<h3>
+<a id="overview-mode" class="anchor" href="#overview-mode" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview mode</h3>
+
+<p>Press "Esc" key to toggle the overview mode on and off. While you're in this mode, you can still navigate between slides,
+as if you were at 1,000 feet above your presentation. The overview mode comes with a few API hooks:</p>
+
+<div class="highlight highlight-javascript"><pre>Reveal.addEventListener( <span class="pl-s"><span class="pl-pds">'</span>overviewshown<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>( <span class="pl-smi">event</span> ) { <span class="pl-c">/* ... */</span> } );
+Reveal.addEventListener( <span class="pl-s"><span class="pl-pds">'</span>overviewhidden<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>( <span class="pl-smi">event</span> ) { <span class="pl-c">/* ... */</span> } );
+
+<span class="pl-c">// Toggle the overview mode programmatically</span>
+Reveal.toggleOverview();</pre></div>
+
+<h3>
+<a id="fullscreen-mode" class="anchor" href="#fullscreen-mode" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fullscreen mode</h3>
+
+<p>Just press »F« on your keyboard to show your presentation in fullscreen mode. Press the »ESC« key to exit fullscreen mode.</p>
+
+<h3>
+<a id="embedded-media" class="anchor" href="#embedded-media" aria-hidden="true"><span class="octicon octicon-link"></span></a>Embedded media</h3>
+
+<p>Embedded HTML5 <code>&lt;video&gt;</code>/<code>&lt;audio&gt;</code> and YouTube iframes are automatically paused when your navigate away from a slide. This can be disabled by decorating your element with a <code>data-ignore</code> attribute.</p>
+
+<p>Add <code>data-autoplay</code> to your media element if you want it to automatically start playing when the slide is shown:</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">video</span> <span class="pl-e">data-autoplay</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">video</span>&gt;</pre></div>
+
+<h2>
+<a id="pdf-export" class="anchor" href="#pdf-export" aria-hidden="true"><span class="octicon octicon-link"></span></a>PDF Export</h2>
+
+<p>Presentations can be exported to PDF via a special print stylesheet. This feature requires that you use <a href="http://google.com/chrome">Google Chrome</a>.
+Here's an example of an exported presentation that's been uploaded to SlideShare: <a href="http://www.slideshare.net/hakimel/revealjs-13872948">http://www.slideshare.net/hakimel/revealjs-13872948</a>.</p>
+
+<ol>
+<li>Open your presentation with <a href="https://github.com/hakimel/reveal.js/blob/master/css/print/pdf.css">css/print/pdf.css</a> included on the page. The default index HTML lets you add <em>print-pdf</em> anywhere in the query to include the stylesheet, for example: <a href="http://lab.hakim.se/reveal-js?print-pdf">lab.hakim.se/reveal-js?print-pdf</a>.</li>
+<li>Open the in-browser print dialog (CMD+P).</li>
+<li>Change the <strong>Destination</strong> setting to <strong>Save as PDF</strong>.</li>
+<li>Change the <strong>Layout</strong> to <strong>Landscape</strong>.</li>
+<li>Change the <strong>Margins</strong> to <strong>None</strong>.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+
+<p><img src="https://s3.amazonaws.com/hakim-static/reveal-js/pdf-print-settings.png" alt="Chrome Print Settings"></p>
+
+<h2>
+<a id="theming" class="anchor" href="#theming" aria-hidden="true"><span class="octicon octicon-link"></span></a>Theming</h2>
+
+<p>The framework comes with a few different themes included:</p>
+
+<ul>
+<li>default: Gray background, white text, blue links</li>
+<li>beige: Beige background, dark text, brown links</li>
+<li>sky: Blue background, thin white text, blue links</li>
+<li>night: Black background, thick white text, orange links</li>
+<li>serif: Cappuccino background, gray text, brown links</li>
+<li>simple: White background, black text, blue links</li>
+</ul>
+
+<p>Each theme is available as a separate stylesheet. To change theme you will need to replace <strong>default</strong> below with your desired theme name in index.html:</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>css/theme/default.css<span class="pl-pds">"</span></span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>theme<span class="pl-pds">"</span></span>&gt;</pre></div>
+
+<p>If you want to add a theme of your own see the instructions here: <a href="https://github.com/hakimel/reveal.js/blob/master/css/theme/README.md">/css/theme/README.md</a>.</p>
+
+<h2>
+<a id="speaker-notes" class="anchor" href="#speaker-notes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Speaker Notes</h2>
+
+<p>reveal.js comes with a speaker notes plugin which can be used to present per-slide notes in a separate browser window. The notes window also gives you a preview of the next upcoming slide so it may be helpful even if you haven't written any notes. Press the 's' key on your keyboard to open the notes window.</p>
+
+<p>By default notes are written using standard HTML, see below, but you can add a <code>data-markdown</code> attribute to the <code>&lt;aside&gt;</code> to write them using Markdown.</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">section</span>&gt;
+    &lt;<span class="pl-ent">h2</span>&gt;Some Slide&lt;/<span class="pl-ent">h2</span>&gt;
+
+    &lt;<span class="pl-ent">aside</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>notes<span class="pl-pds">"</span></span>&gt;
+        Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+    &lt;/<span class="pl-ent">aside</span>&gt;
+&lt;/<span class="pl-ent">section</span>&gt;</pre></div>
+
+<h2>
+<a id="server-side-speaker-notes" class="anchor" href="#server-side-speaker-notes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Server Side Speaker Notes</h2>
+
+<p>In some cases it can be desirable to run notes on a separate device from the one you're presenting on. The Node.js-based notes plugin lets you do this using the same note definitions as its client side counterpart. Include the required scripts by adding the following dependencies:</p>
+
+<div class="highlight highlight-javascript"><pre>Reveal.initialize({
+    ...
+
+    dependencies<span class="pl-k">:</span> [
+        { src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>socket.io/socket.io.js<span class="pl-pds">'</span></span>, async<span class="pl-k">:</span> <span class="pl-c1">true</span> },
+        { src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>plugin/notes-server/client.js<span class="pl-pds">'</span></span>, async<span class="pl-k">:</span> <span class="pl-c1">true</span> }
+    ]
+});</pre></div>
+
+<p>Then:</p>
+
+<ol>
+<li>Install <a href="http://nodejs.org/">Node.js</a>
+</li>
+<li>Run <code>npm install</code>
+</li>
+<li>Run <code>node plugin/notes-server</code>
+</li>
+</ol>
+
+<h2>
+<a id="multiplexing" class="anchor" href="#multiplexing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Multiplexing</h2>
+
+<p>The multiplex plugin allows your audience to view the slides of the presentation you are controlling on their own phone, tablet or laptop. As the master presentation navigates the slides, all client presentations will update in real time. See a demo at <a href="http://revealjs.jit.su">http://revealjs.jit.su/</a>.</p>
+
+<p>The multiplex plugin needs the following 3 things to operate:</p>
+
+<ol>
+<li>Master presentation that has control</li>
+<li>Client presentations that follow the master</li>
+<li>Socket.io server to broadcast events from the master to the clients</li>
+</ol>
+
+<p>More details:</p>
+
+<h4>
+<a id="master-presentation" class="anchor" href="#master-presentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Master presentation</h4>
+
+<p>Served from a static file server accessible (preferably) only to the presenter. This need only be on your (the presenter's) computer. (It's safer to run the master presentation from your own computer, so if the venue's Internet goes down it doesn't stop the show.) An example would be to execute the following commands in the directory of your master presentation: </p>
+
+<ol>
+<li><code>npm install node-static</code></li>
+<li><code>static</code></li>
+</ol>
+
+<p>If you want to use the speaker notes plugin with your master presentation then make sure you have the speaker notes plugin configured correctly along with the configuration shown below, then execute <code>node plugin/notes-server</code> in the directory of your master presentation. The configuration below will cause it to connect to the socket.io server as a master, as well as launch your speaker-notes/static-file server.</p>
+
+<p>You can then access your master presentation at <code>http://localhost:1947</code></p>
+
+<p>Example configuration:</p>
+
+<div class="highlight highlight-javascript"><pre>Reveal.initialize({
+    <span class="pl-c">// other options</span>
+
+    multiplex<span class="pl-k">:</span> {
+        <span class="pl-c">// Example values. Generate your own.</span>
+        secret<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>13652805320794272084<span class="pl-pds">'</span></span>, <span class="pl-c">// Obtained from the socket.io server. Gives this (the master) control of the presentation</span>
+        id<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>1ea875674b17ca76<span class="pl-pds">'</span></span>, <span class="pl-c">// Obtained from socket.io server</span>
+        url<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>revealjs.jit.su:80<span class="pl-pds">'</span></span> <span class="pl-c">// Location of socket.io server</span>
+    },
+
+    <span class="pl-c">// Optional libraries used to extend on reveal.js</span>
+    dependencies<span class="pl-k">:</span> [
+        <span class="pl-c">// other deps</span>
+        { src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.10/socket.io.min.js<span class="pl-pds">'</span></span>, async<span class="pl-k">:</span> <span class="pl-c1">true</span> },
+        { src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>plugin/multiplex/master.js<span class="pl-pds">'</span></span>, async<span class="pl-k">:</span> <span class="pl-c1">true</span> },
+
+        <span class="pl-c">// and if you want speaker notes</span>
+        { src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>plugin/notes-server/client.js<span class="pl-pds">'</span></span>, async<span class="pl-k">:</span> <span class="pl-c1">true</span> }
+    ]
+});</pre></div>
+
+<h4>
+<a id="client-presentation" class="anchor" href="#client-presentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Client presentation</h4>
+
+<p>Served from a publicly accessible static file server. Examples include: GitHub Pages, Amazon S3, Dreamhost, Akamai, etc. The more reliable, the better. Your audience can then access the client presentation via <code>http://example.com/path/to/presentation/client/index.html</code>, with the configuration below causing them to connect to the socket.io server as clients.</p>
+
+<p>Example configuration:</p>
+
+<div class="highlight highlight-javascript"><pre>Reveal.initialize({
+    <span class="pl-c">// other options</span>
+
+    multiplex<span class="pl-k">:</span> {
+        <span class="pl-c">// Example values. Generate your own.</span>
+        secret<span class="pl-k">:</span> <span class="pl-c1">null</span>, <span class="pl-c">// null so the clients do not have control of the master presentation</span>
+        id<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>1ea875674b17ca76<span class="pl-pds">'</span></span>, <span class="pl-c">// id, obtained from socket.io server</span>
+        url<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>revealjs.jit.su:80<span class="pl-pds">'</span></span> <span class="pl-c">// Location of socket.io server</span>
+    },
+
+    <span class="pl-c">// Optional libraries used to extend on reveal.js</span>
+    dependencies<span class="pl-k">:</span> [
+        <span class="pl-c">// other deps</span>
+        { src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.10/socket.io.min.js<span class="pl-pds">'</span></span>, async<span class="pl-k">:</span> <span class="pl-c1">true</span> },
+        { src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>plugin/multiplex/client.js<span class="pl-pds">'</span></span>, async<span class="pl-k">:</span> <span class="pl-c1">true</span> }
+    ]
+});</pre></div>
+
+<h4>
+<a id="socketio-server" class="anchor" href="#socketio-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Socket.io server</h4>
+
+<p>Server that receives the slideChanged events from the master presentation and broadcasts them out to the connected client presentations. This needs to be publicly accessible. You can run your own socket.io server with the commands:</p>
+
+<ol>
+<li><code>npm install</code></li>
+<li><code>node plugin/multiplex</code></li>
+</ol>
+
+<p>Or you use the socket.io server at <a href="http://revealjs.jit.su">http://revealjs.jit.su</a>.</p>
+
+<p>You'll need to generate a unique secret and token pair for your master and client presentations. To do so, visit <code>http://example.com/token</code>, where <code>http://example.com</code> is the location of your socket.io server. Or if you're going to use the socket.io server at <a href="http://revealjs.jit.su">http://revealjs.jit.su</a>, visit <a href="http://revealjs.jit.su/token">http://revealjs.jit.su/token</a>.</p>
+
+<p>You are very welcome to point your presentations at the Socket.io server running at <a href="http://revealjs.jit.su">http://revealjs.jit.su</a>, but availability and stability are not guaranteed. For anything mission critical I recommend you run your own server. It is simple to deploy to nodejitsu, heroku, your own environment, etc.</p>
+
+<h5>
+<a id="socketio-server-as-file-static-server" class="anchor" href="#socketio-server-as-file-static-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>socket.io server as file static server</h5>
+
+<p>The socket.io server can play the role of static file server for your client presentation, as in the example at <a href="http://revealjs.jit.su">http://revealjs.jit.su</a>. (Open <a href="http://revealjs.jit.su">http://revealjs.jit.su</a> in two browsers. Navigate through the slides on one, and the other will update to match.) </p>
+
+<p>Example configuration:</p>
+
+<div class="highlight highlight-javascript"><pre>Reveal.initialize({
+    <span class="pl-c">// other options</span>
+
+    multiplex<span class="pl-k">:</span> {
+        <span class="pl-c">// Example values. Generate your own.</span>
+        secret<span class="pl-k">:</span> <span class="pl-c1">null</span>, <span class="pl-c">// null so the clients do not have control of the master presentation</span>
+        id<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>1ea875674b17ca76<span class="pl-pds">'</span></span>, <span class="pl-c">// id, obtained from socket.io server</span>
+        url<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>example.com:80<span class="pl-pds">'</span></span> <span class="pl-c">// Location of your socket.io server</span>
+    },
+
+    <span class="pl-c">// Optional libraries used to extend on reveal.js</span>
+    dependencies<span class="pl-k">:</span> [
+        <span class="pl-c">// other deps</span>
+        { src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.10/socket.io.min.js<span class="pl-pds">'</span></span>, async<span class="pl-k">:</span> <span class="pl-c1">true</span> },
+        { src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>plugin/multiplex/client.js<span class="pl-pds">'</span></span>, async<span class="pl-k">:</span> <span class="pl-c1">true</span> }
+    ]</pre></div>
+
+<p>It can also play the role of static file server for your master presentation and client presentations at the same time (as long as you don't want to use speaker notes). (Open <a href="http://revealjs.jit.su">http://revealjs.jit.su</a> in two browsers. Navigate through the slides on one, and the other will update to match. Navigate through the slides on the second, and the first will update to match.) This is probably not desirable, because you don't want your audience to mess with your slides while you're presenting. ;)</p>
+
+<p>Example configuration:</p>
+
+<div class="highlight highlight-javascript"><pre>Reveal.initialize({
+    <span class="pl-c">// other options</span>
+
+    multiplex<span class="pl-k">:</span> {
+        <span class="pl-c">// Example values. Generate your own.</span>
+        secret<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>13652805320794272084<span class="pl-pds">'</span></span>, <span class="pl-c">// Obtained from the socket.io server. Gives this (the master) control of the presentation</span>
+        id<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>1ea875674b17ca76<span class="pl-pds">'</span></span>, <span class="pl-c">// Obtained from socket.io server</span>
+        url<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>example.com:80<span class="pl-pds">'</span></span> <span class="pl-c">// Location of your socket.io server</span>
+    },
+
+    <span class="pl-c">// Optional libraries used to extend on reveal.js</span>
+    dependencies<span class="pl-k">:</span> [
+        <span class="pl-c">// other deps</span>
+        { src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.10/socket.io.min.js<span class="pl-pds">'</span></span>, async<span class="pl-k">:</span> <span class="pl-c1">true</span> },
+        { src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>plugin/multiplex/master.js<span class="pl-pds">'</span></span>, async<span class="pl-k">:</span> <span class="pl-c1">true</span> },
+        { src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>plugin/multiplex/client.js<span class="pl-pds">'</span></span>, async<span class="pl-k">:</span> <span class="pl-c1">true</span> }
+    ]
+});</pre></div>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>The <strong>basic setup</strong> is for authoring presentations only. The <strong>full setup</strong> gives you access to all reveal.js features as well as the development tasks needed to make changes to the source.</p>
+
+<h3>
+<a id="basic-setup" class="anchor" href="#basic-setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic setup</h3>
+
+<p>The core of reveal.js is very easy to install. You'll simply need to download a copy of this repository and open the index.html file directly in your browser.</p>
+
+<ol>
+<li><p>Download the latest version of reveal.js from <a href="https://github.com/hakimel/reveal.js/releases">https://github.com/hakimel/reveal.js/releases</a></p></li>
+<li><p>Unzip and replace the example contents in index.html with your own</p></li>
+<li><p>Open index.html in a browser to view it</p></li>
+</ol>
+
+<h3>
+<a id="full-setup" class="anchor" href="#full-setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Full setup</h3>
+
+<p>Some reveal.js features, like external markdown, require that presentations run from a local web server. The following instructions will set up such a server as well as all of the development tasks needed to make edits to the reveal.js source code.</p>
+
+<ol>
+<li><p>Install <a href="http://nodejs.org/">Node.js</a></p></li>
+<li><p>Install <a href="http://gruntjs.com/getting-started#installing-the-cli">Grunt</a></p></li>
+<li><p>Clone the reveal.js repository  </p></li>
+</ol>
+
+<pre><code>$ git clone git@github.com:hakimel/reveal.js.git
+</code></pre>
+
+<ol>
+<li>Navigate to the reveal.js folder </li>
+</ol>
+
+<pre><code>$ cd reveal.js
+</code></pre>
+
+<ol>
+<li>Install dependencies<br>
+</li>
+</ol>
+
+<pre><code>$ npm install
+</code></pre>
+
+<ol>
+<li>Serve the presentation and monitor source files for changes<br>
+</li>
+</ol>
+
+<pre><code>$ grunt serve
+</code></pre>
+
+<ol>
+<li>Open <a href="http://localhost:8000">http://localhost:8000</a> to view your presentation</li>
+</ol>
+
+<h3>
+<a id="folder-structure" class="anchor" href="#folder-structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Folder Structure</h3>
+
+<ul>
+<li>
+<strong>css/</strong> Core styles without which the project does not function</li>
+<li>
+<strong>js/</strong> Like above but for JavaScript</li>
+<li>
+<strong>plugin/</strong> Components that have been developed as extensions to reveal.js</li>
+<li>
+<strong>lib/</strong> All other third party assets (JavaScript, CSS, fonts)</li>
+</ul>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>MIT licensed</p>
+
+<p>Copyright (C) 2013 Hakim El Hattab, <a href="http://hakim.se">http://hakim.se</a></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/cst2301-pt13/Saving-Data-Slides">reveal.js</a> is maintained by <a href="https://github.com/cst2301-pt13">cst2301-pt13</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
 </html>
+
