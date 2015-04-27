@@ -1,4 +1,5 @@
 # Saving Data
+
 ## Saving Files
 - Android uses a file system that's similar to disk-based file systems on other platforms.
 - Read and write files using the [File](http://developer.android.com/reference/java/io/File.html) APIs.
@@ -31,5 +32,3 @@ To write to the external storage, you must request the [`WRITE_EXTERNAL_STORAGE`
     ...
 </manifest>
 ```
-
-
